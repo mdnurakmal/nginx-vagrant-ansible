@@ -18,8 +18,10 @@ sudo apt install ./vagrant_2.2.18_x86_64.deb
 ```
 
 - [Ansible] (latest version, tested with 2.10)
+Allow SSH for firewall
 ```shell
 sudo apt-add-repository ppa:ansible/ansible-2.10
+sudo ufw allow 22
 ```
 
 ## Usage
