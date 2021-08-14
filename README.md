@@ -40,12 +40,10 @@ Destroy VMs
 vagrant destroy
 ```
 # Learning objective
-* How to write berksfile to automatically download cookbooks by using berksfile
-* Use of cookbook_file resource to add files into chef provisioned machine from host
 
 # Learning Points
-* Chefdk vs chef-workstaion
-* Open issue - https://github.com/hashicorp/vagrant/issues/12337
+* Running vagrant on ubuntu using droplet from digitalocean
+* How to fix "vagrant up stuck at SSH auth method"
 
 # References
 * https://docs.chef.io/windows/
