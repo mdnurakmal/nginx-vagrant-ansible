@@ -17,9 +17,9 @@ sudo curl -O https://releases.hashicorp.com/vagrant/2.2.18/vagrant_2.2.18_x86_64
 sudo apt install ./vagrant_2.2.18_x86_64.deb
 ```
 
+- [Ansible] (latest version, tested with 2.10)
 ```shell
-vagrant plugin install vagrant-omnibus
-vagrant plugin install vagrant-berkshelf
+sudo apt-add-repository ppa:ansible/ansible-2.10
 ```
 
 ## Usage
@@ -28,17 +28,6 @@ Create VMs from vagrant file
 
 ```shell
 vagrant up
-```
-
-Error message will occur as described in this https://github.com/hashicorp/vagrant/issues/12337 <br >
-Edit vagrant file to include the following
-
-```shell
-chef.install = false
-```
-Save the updated vagrant file and update VMs.
-```shell
-vagrant provision
 ```
 
 Check nginx is running by entering 10.0.0.10 into your browser
