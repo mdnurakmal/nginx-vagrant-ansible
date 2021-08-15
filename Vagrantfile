@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
       nginx_server.vm.hostname = "nginx"
       nginx_server.vm.network "forwarded_port", guest: "80", host: "80"
       nginx_server.vm.provision "ansible" do |ansible|
-        ansible.playbook = "provisioning/playbook.yaml"
+        ansible.playbook = "provisioning/playbook.yml"
       end
 
     end
