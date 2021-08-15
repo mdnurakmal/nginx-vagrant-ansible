@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
       nginx_server.vm.network "private_network", ip: "10.0.0.10"
       nginx_server.vm.box = "generic/ubuntu1804"
       nginx_server.vm.hostname = "nginx"
-      nginx_server.vm.network "forwarded_port", guest: "80", host: "80"
+      nginx_server.vm.network "forwarded_port", guest: "80", host: "8080"
       nginx_server.vm.provision "ansible" do |ansible|
         ansible.playbook = "provisioning/playbook.yml"
       end
