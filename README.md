@@ -1,5 +1,5 @@
 
-# Automatically create nginx server using vagrant , virtualbox , chef-solo
+# Automatically create nginx server using vagrant , libvirt, ansible
 
 # Development Environment
 - Ubuntu 20.04 (LTS) x64
@@ -10,18 +10,26 @@ Download & Install:
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (latest version, tested with 6.1.22)
 - [Vagrant](https://www.vagrantup.com/downloads.html) (latest version, tested with 2.2.18)
 
+
+Install libvirt
 ```shell
-sudo apt update
-sudo apt install virtualbox
-sudo curl -O https://releases.hashicorp.com/vagrant/2.2.18/vagrant_2.2.18_x86_64.deb
-sudo apt install ./vagrant_2.2.18_x86_64.deb
+sudo apt install qemu qemu-kvm libvirt-clients libvirt-daemon-system virtinst bridge-utils -y
+sudo apt-get update -y
+sudo systemctl enable libvirtd
+sudo apt install qemu libvirt-daemon-system libvirt-clients libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev ruby-libvirt ebtables dnsmasq-base -y
 ```
 
-- [Ansible] (latest version, tested with 2.10)
-Allow SSH for firewall
+Install vagrant
 ```shell
-sudo apt-add-repository ppa:ansible/ansible-2.10
-sudo ufw allow 22
+sudo apt install vagrant -y
+```
+
+Install ansible
+```shell
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible -y
 ```
 
 ## Usage
@@ -32,7 +40,11 @@ Create VMs from vagrant file
 vagrant up
 ```
 
-Check nginx is running by entering 10.0.0.10 into your browser
+Check nginx website can be access from host pc that is running vagrant
+
+```shell
+curl localhost:8080
+```
 
 Destroy VMs
 
@@ -40,11 +52,13 @@ Destroy VMs
 vagrant destroy
 ```
 # Learning objective
+* Ansible basics
 
 # Learning Points
-* By default libvirt create VM on Nat
-* Running vagrant on ubuntu using droplet from digitalocean
-* How to fix "vagrant up stuck at SSH auth method"
+* Running vagrant on ubuntu using droplet from digitalocean since ansible is not supported on windows platform
+* How to fix "vagrant up stuck at SSH auth method" ? (Use libvirt instead of virtual box)
+* add host_ip = "*" to forwarded_port inside vagrantfile
+* How to automate all the prerequisite installation on host pc before running vagrant ? (Terraform ?)
 
 # References
 * https://ostechnix.com/install-and-configure-kvm-in-ubuntu-20-04-headless-server/
