@@ -2,15 +2,9 @@
 # Automatically create nginx server using vagrant , libvirt, ansible
 
 # Development Environment
-- Ubuntu 20.04 (LTS) x64
+- Running on Ubuntu 20.04 (LTS) x64 on droplet from digitalocean
 
 # Installation
-
-Download & Install:
-- [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (latest version, tested with 6.1.22)
-- [Vagrant](https://www.vagrantup.com/downloads.html) (latest version, tested with 2.2.18)
-
-
 Install libvirt
 ```shell
 sudo apt install qemu qemu-kvm libvirt-clients libvirt-daemon-system virtinst bridge-utils -y
