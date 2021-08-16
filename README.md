@@ -42,9 +42,10 @@ vagrant destroy
 # Learning objective
 
 # Learning Points
+* By default libvirt create VM on Nat
 * Running vagrant on ubuntu using droplet from digitalocean
 * How to fix "vagrant up stuck at SSH auth method"
 
 # References
-* https://docs.chef.io/windows/
-* https://stackoverflow.com/questions/19125374/how-do-i-configure-chef-solo-to-install-nginx-on-a-new-vagrant-box
+* https://ostechnix.com/install-and-configure-kvm-in-ubuntu-20-04-headless-server/
+* https://ostechnix.com/how-to-use-vagrant-with-libvirt-kvm-provider/
