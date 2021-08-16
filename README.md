@@ -35,7 +35,7 @@ vagrant up
 ```
 
 Check nginx website can be access from host pc that is running vagrant
-
+Check nginx website can be access externally from internet through host public ip
 ```shell
 curl localhost:8080
 ```
